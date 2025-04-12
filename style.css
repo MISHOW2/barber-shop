@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
-body{
+body {
   font-family: "Montserrat", sans-serif;
 }
 
-nav{
+nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,34 +15,34 @@ nav{
   gap: 277px;
 }
 
-.logo{
+.logo {
   width: 120px;
 }
 
 
-nav ul{
+nav ul {
   display: flex;
   gap: 33px;
 }
 
 nav li {
- list-style: none;
- font-weight: bold;
- font-size: 14px;
- cursor: pointer;
+  list-style: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 
-.book-btn{
-width: 132px;
-height: 52px;
-font-size: 14px;
-border-radius: 13px;
-font-weight: bold;
-border: 0;
-background-color: #000;
-color: white;
-cursor: pointer;
+.book-btn {
+  width: 132px;
+  height: 52px;
+  font-size: 14px;
+  border-radius: 13px;
+  font-weight: bold;
+  border: 0;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
 }
 
 
@@ -56,47 +57,54 @@ cursor: pointer;
   align-items: center;
   background-size: cover;
   background-position: center;
- 
+
 }
 
 
-.hero-section p{
+.hero-section p {
   margin: 0;
   padding: 0;
 }
 
-.barber{
+.barber {
   font-size: 48px;
   font-weight: bold;
   margin: 0;
 }
 
-.shop{
+.shop {
   font-size: 48px;
-  font-weight:bold;                                      
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
 }
-.flex-shop{
+
+.flex-shop {
   display: flex;
   align-items: center;
   gap: 4px;
+  font-family: "Italianno", cursive;
+  font-weight: 900;
 }
 
-.lookSharp{
+.lookSharp {
   font-size: 48px;
-    text-align: center;
+
   width: 355px;
   margin: 0;
   font-weight: bolder;
 }
 
-.step-in-style{
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-in-style {
   margin-top: 100px;
-display:flex;
-flex-direction: column;
-align-items: center;
-
-gap: 30px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .carousel-wrapper {
@@ -106,19 +114,19 @@ gap: 30px;
   overflow: hidden;
 }
 
-.carousel-info {
+.carousel-info {}
 
-}
-
-.carousel-info h2{
+.carousel-info h2 {
   font-size: 64px;
   width: 349px;
   font-weight: bolder;
 }
 
-.discover{
-font-size:20px ;
+.discover {
+  font-size: 16px;
+  width: 300px;
 }
+
 .carousel-container {
   overflow: hidden;
   width: 800px;
@@ -133,21 +141,40 @@ font-size:20px ;
 
 .card {
   flex: 0 0 300px;
-  position:relative;
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   margin-right: 24px;
   flex-shrink: 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
 }
 
 .card img {
   width: 100%;
   height: 533px;
   object-fit: cover;
-  background-color: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.4));
+  display: block;
 }
+
+/* Gradient overlay using a pseudo-element */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+  /* allows clicks to go through */
+}
+
 
 .card-content {
   padding: 1rem;
@@ -172,8 +199,12 @@ font-size:20px ;
   margin-top: 1rem;
 }
 
-button {
+.carousel-buttons button {
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   cursor: pointer;
+  border: 4px solid black;
+  width: 80px;
+  background: none;
+  border-radius: 10px;
 }

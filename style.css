@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body{
+  font-family: "Montserrat", sans-serif;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 120px;
+  gap: 277px;
+}
+
+.logo{
+  width: 120px;
+}
+
+
+nav ul{
+  display: flex;
+  gap: 33px;
+}
+
+nav li {
+ list-style: none;
+ font-weight: bold;
+ font-size: 14px;
+ cursor: pointer;
+}
+
+
+.book-btn{
+width: 132px;
+height: 52px;
+font-size: 14px;
+border-radius: 13px;
+font-weight: bold;
+border: 0;
+background-color: #000;
+color: white;
+cursor: pointer;
+}
+
+
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.4)), url('./images/hero.jpg');
+  text-align: center;
+  height: 456px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+ 
+}
+
+
+.hero-section p{
+  margin: 0;
+  padding: 0;
+}
+
+.barber{
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.shop{
+  font-size: 48px;
+  font-weight:bold;                                      
+}
+.flex-shop{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lookSharp{
+  font-size: 48px;
+    text-align: center;
+  width: 355px;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.step-in-style{
+  margin-top: 100px;
+display:flex;
+flex-direction: column;
+align-items: center;
+
+gap: 30px;
+
+}
+
+.carousel-wrapper {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.carousel-info {
+
+}
+
+.carousel-info h2{
+  font-size: 64px;
+  width: 349px;
+  font-weight: bolder;
+}
+
+.discover{
+font-size:20px ;
+}
+.carousel-container {
+  overflow: hidden;
+  width: 800px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+
+.card {
+  flex: 0 0 300px;
+  position:relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 300px;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.card img {
+  width: 100%;
+  height: 533px;
+  object-fit: cover;
+  background-color: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.4));
+}
+
+.card-content {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  color: white;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card p {
+  font-weight: bold;
+
+}
+
+.carousel-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}

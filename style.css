@@ -385,3 +385,122 @@ ul p{
   display: flex;
   flex-direction: column;
 }
+
+
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .nav-link ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .book-btn {
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .hero-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .barber,
+  .shop,
+  .lookSharp {
+    font-size: 32px;
+  }
+
+  .main-content {
+    padding: 0 20px;
+  }
+
+  .carousel-wrapper {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .carousel-info {
+    text-align: center;
+  }
+
+  .carousel-info h2 {
+    font-size: 32px;
+    width: 100%;
+  }
+
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  .carousel-track {
+    transform: translateX(0);
+    width: 100%;
+  }
+  .card {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .what-we-offer {
+    padding: 20px;
+    gap: 40px;
+  }
+
+  .services-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+  }
+
+  .service {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .you-need {
+    padding: 40px 20px;
+    height: auto;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .everything {
+    font-size: 24px;
+  }
+
+  .footer-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .footer-detail-container {
+    width: 100%;
+  }
+
+  footer ul {
+    align-items: flex-start;
+  }
+
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo img {
+    margin: 0 auto;
+  }
+}

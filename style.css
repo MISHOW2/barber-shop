@@ -208,3 +208,164 @@ nav li {
   background: none;
   border-radius: 10px;
 }
+
+
+
+.what-we-offer {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+
+
+.what-we-offer h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.underline {
+  width: 126px;
+  height: 11px;
+  background-color: black;
+ 
+  border-radius: 2px;
+}
+
+.what-we-offer-desc{
+  font-size: 14px;
+}
+
+.what-we-offer p {
+  max-width: 600px;
+ 
+  color: #555;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1167px;
+  gap: 60px;
+}
+
+.service {
+  flex: 0 1 calc(33.333% - 40px);
+  display: flex;
+  align-items: top;
+  gap: 18px;
+}
+
+.service img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.service h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.service p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  
+
+}
+
+.service div{
+  text-align: left;
+  width: 281px;
+}
+
+
+.you-need{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.4)), url('./images/pexels-rdne-7697390.jpg');
+  text-align: center;
+  height: 456px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  align-items: left;
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+  padding-left: 46px;
+  margin-top: 160px;
+}
+
+.everything{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.underline-need {
+  width: 126px;
+  height: 5px;
+  background-color: rgb(255, 255, 255);
+ 
+  border-radius: 2px;
+}
+
+
+.desc{
+  font-size: 15px;
+}
+
+
+footer{
+ margin-top: 100px;
+ display: flex;
+ flex-direction: column;
+}
+
+.footer-logo img{
+width: 120px;
+}
+
+
+.footer-details{
+  display: flex;
+  justify-content:space-around ;
+  
+}
+
+.footer-detail-container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}
+.footer-desc{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+footer ul{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+}
+footer li{
+  list-style: none;
+  font-weight: bold;
+  color: #555;
+}
+
+ul p{
+  margin: 0;
+}
+
+.hours{
+ gap: 18px;
+}

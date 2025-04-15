@@ -24,13 +24,11 @@ const products = [
   }
 ];
 
-// Add clones for infinite scroll
 const firstClone = { ...products[0], id: 'first-clone' };
 const lastClone = { ...products[products.length - 1], id: 'last-clone' };
 
 const carouselItems = [lastClone, ...products, firstClone];
 
-// Inject products into the carousel
 track.innerHTML = carouselItems.map(product => `
   <div class="card" data-id="${product.id}">
     <img src="${product.image}" alt="${product.name}" />
@@ -96,27 +94,31 @@ window.addEventListener('load', () => {
   jumpToIndex(index);
 });
 
-
-// ===== Mobile Nav Toggle + Scroll Lock =====
+// ===== Nav Menu =====
 const toggleBtn = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 const navLinkItems = document.querySelectorAll('#nav-links a');
 
 toggleBtn?.addEventListener('click', () => {
   navLinks?.classList.toggle('active');
-
-  // Lock or unlock scroll
-  if (navLinks.classList.contains('active')) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'auto';
-  }
+  document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
 });
 
-// Close nav and enable scroll when a link is clicked
+// Close nav when a link is clicked
 navLinkItems.forEach(link => {
   link.addEventListener('click', () => {
     navLinks?.classList.remove('active');
     document.body.style.overflow = 'auto';
   });
+});
+
+// === Close nav when clicking outside ===
+document.addEventListener('click', (event) => {
+  const isClickInsideNav = navLinks.contains(event.target);
+  const isToggleBtn = toggleBtn.contains(event.target);
+
+  if (!isClickInsideNav && !isToggleBtn && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
 });

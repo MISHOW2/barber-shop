@@ -1,3 +1,4 @@
+// ===== Carousel =====
 const track = document.querySelector('.carousel-track');
 const btnPrevList = document.querySelectorAll('.btn-prev');
 const btnNextList = document.querySelectorAll('.btn-next');
@@ -42,27 +43,23 @@ track.innerHTML = carouselItems.map(product => `
 
 let index = 1;
 
-// Get the width of a single card
 function getCardWidth() {
   const card = document.querySelector('.card');
-  return card ? card.offsetWidth : 0; // removed +24 margin
+  return card ? card.offsetWidth : 0;
 }
 
-// Update the scroll position
 function updateScroll() {
   const cardWidth = getCardWidth();
   track.style.transition = 'transform 0.4s ease-in-out';
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
-// Jump to a specific index
 function jumpToIndex(i) {
   const cardWidth = getCardWidth();
   track.style.transition = 'none';
   track.style.transform = `translateX(-${i * cardWidth}px)`;
 }
 
-// Handle transition end
 track.addEventListener('transitionend', () => {
   if (carouselItems[index].id === 'first-clone') {
     index = 1;
@@ -75,7 +72,6 @@ track.addEventListener('transitionend', () => {
   }
 });
 
-// Next button functionality
 btnNextList.forEach(btn => {
   btn.addEventListener('click', () => {
     if (index >= carouselItems.length - 1) return;
@@ -84,7 +80,6 @@ btnNextList.forEach(btn => {
   });
 });
 
-// Previous button functionality
 btnPrevList.forEach(btn => {
   btn.addEventListener('click', () => {
     if (index <= 0) return;
@@ -93,20 +88,35 @@ btnPrevList.forEach(btn => {
   });
 });
 
-// Handle window resize
 window.addEventListener('resize', () => {
   jumpToIndex(index);
 });
 
-// Initial scroll position when the page loads
 window.addEventListener('load', () => {
   jumpToIndex(index);
 });
 
-// Mobile menu toggle
+
+// ===== Mobile Nav Toggle + Scroll Lock =====
 const toggleBtn = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
+const navLinkItems = document.querySelectorAll('#nav-links a');
 
 toggleBtn?.addEventListener('click', () => {
   navLinks?.classList.toggle('active');
+
+  // Lock or unlock scroll
+  if (navLinks.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+});
+
+// Close nav and enable scroll when a link is clicked
+navLinkItems.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks?.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
 });

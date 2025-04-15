@@ -63,7 +63,7 @@ a{
     align-items: center;
     padding: 0;
   }
-.logo-container .logo-container-nav img{
+.logo-container, .logo-container-nav img{
   width: 50px;
 }
 

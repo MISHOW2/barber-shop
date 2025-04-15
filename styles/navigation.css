@@ -36,6 +36,7 @@ a{
   font-size: 24px;
   border: 1px solid black;
   padding: 12px;
+  border-radius: 10px;
 }
 
 
@@ -70,6 +71,9 @@ a{
 .logo-container-nav img{
   width: 50px;
 }
+.nav-link a{
+  font-size: 20px;
+}
 .logo-container-nav{
   display: block;
 }
@@ -97,6 +101,7 @@ a{
   .nav-link ul {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0;
   }
 
   .menu-toggle {

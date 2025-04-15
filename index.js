@@ -23,13 +23,13 @@ const products = [
   }
 ];
 
-// Add clones
+// Add clones for infinite scroll
 const firstClone = { ...products[0], id: 'first-clone' };
 const lastClone = { ...products[products.length - 1], id: 'last-clone' };
 
 const carouselItems = [lastClone, ...products, firstClone];
 
-// Inject into DOM
+// Inject products into the carousel
 track.innerHTML = carouselItems.map(product => `
   <div class="card" data-id="${product.id}">
     <img src="${product.image}" alt="${product.name}" />
@@ -42,24 +42,27 @@ track.innerHTML = carouselItems.map(product => `
 
 let index = 1;
 
-// Scroll to the correct initial item
+// Get the width of a single card
 function getCardWidth() {
   const card = document.querySelector('.card');
-  return card ? card.offsetWidth + 24 : 0; // Add margin-right if any (24px)
+  return card ? card.offsetWidth : 0; // removed +24 margin
 }
 
+// Update the scroll position
 function updateScroll() {
   const cardWidth = getCardWidth();
   track.style.transition = 'transform 0.4s ease-in-out';
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
+// Jump to a specific index
 function jumpToIndex(i) {
   const cardWidth = getCardWidth();
   track.style.transition = 'none';
   track.style.transform = `translateX(-${i * cardWidth}px)`;
 }
 
+// Handle transition end
 track.addEventListener('transitionend', () => {
   if (carouselItems[index].id === 'first-clone') {
     index = 1;
@@ -72,6 +75,7 @@ track.addEventListener('transitionend', () => {
   }
 });
 
+// Next button functionality
 btnNextList.forEach(btn => {
   btn.addEventListener('click', () => {
     if (index >= carouselItems.length - 1) return;
@@ -80,6 +84,7 @@ btnNextList.forEach(btn => {
   });
 });
 
+// Previous button functionality
 btnPrevList.forEach(btn => {
   btn.addEventListener('click', () => {
     if (index <= 0) return;
@@ -88,11 +93,12 @@ btnPrevList.forEach(btn => {
   });
 });
 
-// Handle resizing
+// Handle window resize
 window.addEventListener('resize', () => {
   jumpToIndex(index);
 });
 
+// Initial scroll position when the page loads
 window.addEventListener('load', () => {
   jumpToIndex(index);
 });
@@ -104,4 +110,3 @@ const navLinks = document.getElementById('nav-links');
 toggleBtn?.addEventListener('click', () => {
   navLinks?.classList.toggle('active');
 });
-

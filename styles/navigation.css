@@ -67,7 +67,7 @@ a{
   .nav-link {
     display: none;
     position: absolute;
-    top: 80px; /* adjust based on nav height */
+   
     right: 20px;
     background-color: white;
     padding: 20px;

@@ -126,16 +126,6 @@
   width: auto;
 }
 
-.carousel-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s ease;
-  will-change: transform;
-}
 
 .top-buttons{
   display: none;

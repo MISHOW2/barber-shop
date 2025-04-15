@@ -1,0 +1,153 @@
+.carousel-wrapper {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.carousel-info {}
+
+.carousel-info h2 {
+  font-size: 64px;
+  width: 349px;
+  font-weight: bolder;
+}
+
+.discover {
+  font-size: 16px;
+  width: 300px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%; /* allow full width on all screens */
+  max-width: 800px;
+  margin: 0 auto;
+} 
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+
+.card {
+  flex: 0 0 300px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 533px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay using a pseudo-element */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+  /* allows clicks to go through */
+}
+
+
+.card-content {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  color: white;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card p {
+  font-weight: bold;
+
+}
+
+.carousel-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.carousel-buttons button {
+  padding: 10px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: 4px solid black;
+  width: 80px;
+  background: none;
+  border-radius: 10px;
+}
+
+
+.buttom-buttons{
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+.main-content {
+  
+}
+.lookSharp{
+  text-align: center;
+}
+.carousel-wrapper {
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.carousel-info h2 {
+  font-size: 36px;
+  width: auto;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.top-buttons{
+  display: none;
+}
+
+.buttom-buttons{
+  display: block;
+}
+.card {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 400px;
+  margin-right: 0;
+}
+}

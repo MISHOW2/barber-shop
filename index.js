@@ -1,6 +1,6 @@
 const track = document.querySelector('.carousel-track');
-const btnPrev = document.querySelector('.btn-prev');
-const btnNext = document.querySelector('.btn-next');
+const btnPrevList = document.querySelectorAll('.btn-prev');
+const btnNextList = document.querySelectorAll('.btn-next');
 
 const products = [
   {
@@ -20,25 +20,18 @@ const products = [
     image: 'images/3B4A2284-copy-scaled.jpg',
     name: 'Kid Fade',
     price: 'R150'
-  },
-  {
-    id: 4,
-    image: 'images/3B4A2284-copy-scaled.jpg',
-    name: 'Kid Fade',
-    price: 'R150'
-  },
+  }
 ];
 
-// Clone first and last cards
+// Add clones
 const firstClone = { ...products[0], id: 'first-clone' };
 const lastClone = { ...products[products.length - 1], id: 'last-clone' };
 
-// Final list with clones added
 const carouselItems = [lastClone, ...products, firstClone];
 
-// Insert into DOM
+// Inject into DOM
 track.innerHTML = carouselItems.map(product => `
-  <div class="card">
+  <div class="card" data-id="${product.id}">
     <img src="${product.image}" alt="${product.name}" />
     <div class="card-content">
       <h3>${product.name}</h3>
@@ -47,46 +40,68 @@ track.innerHTML = carouselItems.map(product => `
   </div>
 `).join('');
 
-// Scroll logic
-let index = 1; // Start on first real product (after the last-clone)
-const cardWidth = 300 + 24; // card width + margin
-const totalItems = carouselItems.length;
+let index = 1;
 
-// Initial positioning
-track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-// Handle transition end to loop seamlessly
-track.addEventListener('transitionend', () => {
-  const cards = document.querySelectorAll('.card');
-  
-  if (carouselItems[index].id === 'first-clone') {
-    track.style.transition = 'none';
-    index = 1;
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-  }
-
-  if (carouselItems[index].id === 'last-clone') {
-    track.style.transition = 'none';
-    index = products.length;
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-  }
-});
+// Scroll to the correct initial item
+function getCardWidth() {
+  const card = document.querySelector('.card');
+  return card ? card.offsetWidth + 24 : 0; // Add margin-right if any (24px)
+}
 
 function updateScroll() {
+  const cardWidth = getCardWidth();
   track.style.transition = 'transform 0.4s ease-in-out';
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
-btnNext.addEventListener('click', () => {
-  if (index < totalItems - 1) {
-    index++;
-    updateScroll();
+function jumpToIndex(i) {
+  const cardWidth = getCardWidth();
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${i * cardWidth}px)`;
+}
+
+track.addEventListener('transitionend', () => {
+  if (carouselItems[index].id === 'first-clone') {
+    index = 1;
+    jumpToIndex(index);
+  }
+
+  if (carouselItems[index].id === 'last-clone') {
+    index = products.length;
+    jumpToIndex(index);
   }
 });
 
-btnPrev.addEventListener('click', () => {
-  if (index > 0) {
+btnNextList.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (index >= carouselItems.length - 1) return;
+    index++;
+    updateScroll();
+  });
+});
+
+btnPrevList.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (index <= 0) return;
     index--;
     updateScroll();
-  }
+  });
 });
+
+// Handle resizing
+window.addEventListener('resize', () => {
+  jumpToIndex(index);
+});
+
+window.addEventListener('load', () => {
+  jumpToIndex(index);
+});
+
+// Mobile menu toggle
+const toggleBtn = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+toggleBtn?.addEventListener('click', () => {
+  navLinks?.classList.toggle('active');
+});
+

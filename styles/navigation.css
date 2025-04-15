@@ -1,0 +1,110 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 120px;
+  gap: 277px;
+}
+
+.logo {
+  width: 120px;
+}
+
+
+nav ul {
+  display: flex;
+  gap: 33px;
+}
+
+nav li {
+  list-style: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+a{
+ text-decoration: none;
+ color: black;
+}
+
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  border: 1px solid black;
+  padding: 12px;
+}
+
+
+.book-btn {
+  width: 132px;
+  height: 52px;
+  font-size: 14px;
+  border-radius: 13px;
+  font-weight: bold;
+  border: 0;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+.logo-container img{
+  width: 50px;
+}
+  .nav-link {
+    display: none;
+    position: absolute;
+    top: 80px; /* adjust based on nav height */
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+  }
+
+  .nav-link.active {
+    display: flex;
+  }
+
+  .nav-link ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .book-btn {
+    display: none;
+  }
+
+  .logo-container {
+    flex: 1;
+  }
+
+  .menu-toggle {
+    flex-shrink: 0;
+  }
+}
